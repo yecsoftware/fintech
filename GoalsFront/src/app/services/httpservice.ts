@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
 import { RequestMessage } from "../core/messages/requestMessage";
 import { ResponseMessage } from "../core/messages/responseMessage";
-import { environment } from "../../../environment.prod";
+import { environment } from "../../environments/environment.prod";
 
 
 
