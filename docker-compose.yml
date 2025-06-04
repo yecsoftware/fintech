@@ -2,7 +2,9 @@ version: "3.9"
 
 services:
   backend:
-    image: ${DOCKER_USERNAME:-yourusername}/fintech-backend:latest
+    build:
+      context: ./Goals
+      dockerfile: Dockerfile
     ports:
       - "5026:5026"
     environment:
@@ -12,7 +14,9 @@ services:
       - app-network
 
   frontend:
-    image: ${DOCKER_USERNAME:-yourusername}/fintech-frontend:latest
+    build:
+      context: ./GoalsFront
+      dockerfile: Dockerfile
     ports:
       - "4200:80"
     depends_on:

@@ -1,4 +1,4 @@
-name: Build ve Deploy
+name: Uygulama Deploy
 
 on:
   push:
@@ -6,69 +6,27 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: 📥 Kodu çek
-        uses: actions/checkout@v4
-        
-      - name: 🟢 Node.js kurulumu
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: GoalsFront/package-lock.json
-          
-      - name: 📦 Dependencies yükle
-        working-directory: ./GoalsFront
-        run: npm ci
-        
-      - name: 🏗️ Angular production build
-        working-directory: ./GoalsFront
-        run: npm run build -- --configuration=production
-        
-      - name: 🐳 Docker Hub'a login
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          
-      - name: 🏗️ Docker images build ve push
-        run: |
-          # Backend image
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/fintech-backend:latest ./Goals
-          docker push ${{ secrets.DOCKER_USERNAME }}/fintech-backend:latest
-          
-          # Frontend image (build edilmiş dosyalarla)
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/fintech-frontend:latest ./GoalsFront
-          docker push ${{ secrets.DOCKER_USERNAME }}/fintech-frontend:latest
-          
-      - name: 🚀 Sunucuda deploy
+      - name: Sunucuya SSH ile bağlan ve deploy et
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            set -e
-            
-            echo "📥 Yeni images çekiliyor..."
-            docker pull ${{ secrets.DOCKER_USERNAME }}/fintech-backend:latest
-            docker pull ${{ secrets.DOCKER_USERNAME }}/fintech-frontend:latest
-            
-            echo "📦 Eski containerlar durduruluyor..."
             cd /home/azureuser/fintech-app
-            docker compose down
-            
-            echo "🔧 Docker compose güncelleniyor..."
             git pull origin main
-            
-            echo "🚀 Yeni containerlar başlatılıyor..."
-            docker compose up -d
-            
-            echo "🧹 Temizlik yapılıyor..."
-            docker system prune -f
-            
-            echo "✅ Deploy tamamlandı!"
-            docker compose ps
+
+            # Angular prod build al (önceden alınmadıysa)
+            cd GoalsFront
+            npm install
+            npm run build -- --configuration=production
+            cd ..
+
+            docker compose down
+            docker compose up -d --build
+
+
