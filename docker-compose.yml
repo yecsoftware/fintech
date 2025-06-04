@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: fintech_sql
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - app-network
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  backend:
+    build:
+      context: ./Goals
+    container_name: goals-api
+    ports:
+      - "5026:5026"
+    depends_on:
+      - mssql
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./GoalsFront
+    container_name: goals-ui
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  mssql_data:
+
+networks:
+  app-network:
+    driver: bridge
