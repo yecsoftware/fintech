@@ -10,15 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Sunucuya SSH ile bağlan ve deploy et
-      uses: appleboy/ssh-action@v0.1.6
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        script: |
-          cd /home/azureuser/fintech-app
-          git pull origin main
-          docker compose down
-          docker compose up -d --build
+      - name: Sunucuya SSH ile bağlan ve deploy et
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /home/azureuser/fintech-app
+            git pull origin main
+
+            # Angular prod build al (önceden alınmadıysa)
+            cd GoalsFront
+            npm install
+            npm run build -- --configuration=production
+            cd ..
+
+            docker compose down
+            docker compose up -d --build
+
 
