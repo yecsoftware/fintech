@@ -1,0 +1,45 @@
+<h2>Kullanıcı Listesi</h2>
+
+<!-- Arama -->
+<input type="text" [(ngModel)]="searchTerm" (input)="applyFilters()" placeholder="Search" />
+
+<!-- Cinsiyet -->
+<h4>Cinsiyet</h4>
+<label><input type="radio" name="gender" value="all" [(ngModel)]="genderFilter" (change)="applyFilters()" /> Tümü</label>
+<label><input type="radio" name="gender" value="female" [(ngModel)]="genderFilter" (change)="applyFilters()" /> Kadın</label>
+<label><input type="radio" name="gender" value="male" [(ngModel)]="genderFilter" (change)="applyFilters()" /> Erkek</label>
+
+<!-- Adres -->
+<h4>Adres Türü</h4>
+<label><input type="radio" name="address" value="Blvd" [(ngModel)]="addressFilter" (change)="applyFilters()" /> Boulevard</label>
+<label><input type="radio" name="address" value="St" [(ngModel)]="addressFilter" (change)="applyFilters()" /> Street</label>
+<label><input type="radio" name="address" value="Dr" [(ngModel)]="addressFilter" (change)="applyFilters()" /> Drive</label>
+
+<!-- Temizle -->
+<button (click)="clearFilters()">Temizle</button>
+
+<!-- Kullanıcılar -->
+<ul class="list">
+  <li *ngFor="let user of paginatedUsers" class="list--list-item">
+    <h3 class="name">{{ user.name }}</h3>
+    <p class="born">Doğum: {{ user.born }}</p>
+    <p class="address">Adres: {{ user.address }}</p>
+  </li>
+</ul>
+
+<div *ngIf="filteredUsers.length === 0">No Results</div>
+
+<!-- Sayfalama -->
+<ul class="pagination">
+  <li><button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">‹</button></li>
+  <li *ngFor="let p of [].constructor(totalPages); let i = index">
+    <button (click)="changePage(i + 1)" [class.active]="i + 1 === currentPage">{{ i + 1 }}</button>
+  </li>
+  <li><button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">›</button></li>
+</ul>
+
+
+
+
+
+<button (click)="testToastr()">Test Toastr</button>

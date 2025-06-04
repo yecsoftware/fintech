@@ -1,0 +1,64 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+@mixin generate-flex-widths($step: 5, $max: 100) {
+  @for $i from $step through $max {
+    @if $i % $step == 0 {
+      .f-width-#{$i} {
+        flex: 0 0 $i * 1%;
+        max-width: $i * 1%;
+      }
+    }
+  }
+}
+
+@include generate-flex-widths(); // 🔥 bu satır ZORUNLU
+
+
+
+.u-column {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.u-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+
+
+::ng-deep .mat-success-snackbar {
+  background-color: #4caf50;
+  color: white;
+}
+
+
+.u-divider {
+  height: 1px;
+  background-color: #dcdcdc;
+  margin: 1rem 0;
+  width: 100%;
+}

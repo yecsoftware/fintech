@@ -1,0 +1,29 @@
+<div *expansionPanelHeader></div>
+<u-expansion-panel expanderDescription="You can perform user operations." expanderTitle="User Operations">
+    <div *expansionPanelContent> 
+        <u-row>
+            <u-column [width]="20"><u-select caption="Modül" label="Modül *" formControlName="module" /></u-column>
+            <u-column [width]="20"><u-select caption="Statü" [items]="getEnumList(Status)" label="Statü *" formControlName="status" /></u-column>
+            <u-column [width]="50"><u-input caption="Ekran Açıklaması *" formControlName="desc" /></u-column>
+        </u-row>
+
+        <u-row>
+            <u-column [width]="20"><u-select caption="Maksimum Açılma Sayısı " label="Maksimum Açılma Sayısı *" formControlName="maxOpen" /></u-column>
+            <u-column [width]="20"><u-select caption="Ekran Tipi" label="Ekran Tipi *" formControlName="screenType" /></u-column>
+            <u-column [width]="50"><u-input caption="İngilizce Açıklama *" formControlName="engDesc" /></u-column>
+        </u-row>
+
+        <u-row>
+            <u-column [width]="40"><u-input caption="URL *" formControlName="url" /></u-column>
+            <u-column [width]="20"><u-select    caption="Statü" label="Müşteri Oturumu Zorunlu *" formControlName="sessionRequired" /></u-column>
+        </u-row>
+    </div>
+
+
+    <div *expansionPanelFooter>
+        <u-button label="Sil"></u-button>
+        <u-button label="Kaydet" theme="dark"></u-button>
+</div>
+
+
+</u-expansion-panel>

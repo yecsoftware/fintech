@@ -1,0 +1,13 @@
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/bin/Debug/net9.0/Creed.DataAccess.deps.json
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/bin/Debug/net9.0/Creed.DataAccess.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/bin/Debug/net9.0/Creed.DataAccess.pdb
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.csproj.AssemblyReference.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.AssemblyInfoInputs.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.AssemblyInfo.cs
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.csproj.CoreCompileInputs.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/refint/Creed.DataAccess.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.pdb
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/ref/Creed.DataAccess.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.DataAccess/obj/Debug/net9.0/Creed.DataAccess.sourcelink.json

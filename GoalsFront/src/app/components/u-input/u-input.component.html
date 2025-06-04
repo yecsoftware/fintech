@@ -1,0 +1,15 @@
+
+<div class="u-input-container">
+    <label *ngIf="caption" class="u-input-label">
+      {{ caption }}
+      <span *ngIf="required" class="u-input-required">*</span>
+    </label>
+  
+    <input
+      class="u-input"
+      [type]="type"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="onInput($event)" />
+  </div>

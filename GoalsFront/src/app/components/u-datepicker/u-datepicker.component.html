@@ -1,0 +1,11 @@
+<div class="datepicker-container">
+    <label *ngIf="caption" class="u-datepicker-label">
+      {{ caption }}
+    </label>
+  <input
+    type="date"
+    [value]="value"
+    [disabled]="disabled"
+    (change)="onInputChange($event)"
+    (blur)="onTouched()" />
+</div>

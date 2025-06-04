@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Goals.API.props" />
+</Project>

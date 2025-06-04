@@ -1,0 +1,35 @@
+<u-column>
+    <div *expansionPanelHeader></div>
+    <u-expansion-panel class="panel-spacing" expanderDescription="You can perform transaction operations."
+        expanderTitle="Transaction Operations">
+        <div *expansionPanelContent>
+            <u-row>
+                <u-column [width]="50"><u-input caption="Telefon Numarası*"
+                        [(value)]="customerData.TCNumber" /></u-column>
+                <u-column [width]="20"><u-button label="Gönder" actionType="get" theme="dark"></u-button></u-column>
+            </u-row>
+        </div>
+        <div *expansionPanelFooter>
+            <u-button label="Sil"></u-button>
+            <u-button label="Kaydet" theme="dark"></u-button>
+        </div>
+    </u-expansion-panel>
+</u-column>
+
+<u-column>
+    <div *expansionPanelHeader></div>
+    <u-expansion-panel class="panel-spacing" expanderDescription="You can perform transaction operations."
+        expanderTitle="Transaction Operations">
+        <div *expansionPanelContent>
+            <u-row>
+                <u-column [width]="50"><u-input caption="Müşteri Tc Kimlik Numarası*"
+                        [(value)]="customerData.TCNumber" /></u-column>
+                <u-column [width]="20"><u-button label="Gönder" (clicked)="post()" theme="dark"></u-button></u-column>
+            </u-row>
+        </div>
+        <div *expansionPanelFooter>
+            <u-button label="Sil"></u-button>
+            <u-button label="Kaydet" theme="dark"></u-button>
+        </div>
+    </u-expansion-panel>
+</u-column>

@@ -1,0 +1,45 @@
+ <!-- <mat-accordion class="example-headers-align" multi>
+  
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{expanderTitle}} </mat-panel-title>
+        <mat-panel-description>
+          {{expanderDescription}}
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput />
+      </mat-form-field>
+      <ng-content></ng-content>
+    </mat-expansion-panel>
+  </mat-accordion> -->
+
+
+
+
+  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <ng-container *ngIf="expansionpanelheader">
+          <ng-container *ngTemplateOutlet="expansionpanelheader.templateRef"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="!expansionpanelheader">{{ expanderTitle }}</ng-container>
+      </mat-panel-title>
+  
+      <mat-panel-description>
+        {{ expanderDescription }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  
+    <div *ngIf="expansionpanelcontent">
+      <div class="u-divider"></div>
+      <ng-container *ngTemplateOutlet="expansionpanelcontent.templateRef"></ng-container>
+    </div>
+  
+    <div *ngIf="expansionpanelfooter">
+      <div class="u-divider"></div>
+      <ng-container *ngTemplateOutlet="expansionpanelfooter.templateRef"></ng-container>
+    </div>
+  </mat-expansion-panel>

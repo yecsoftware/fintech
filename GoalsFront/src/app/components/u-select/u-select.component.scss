@@ -1,0 +1,43 @@
+.u-select-field {
+    width: 100%;
+    font-weight: 500;
+  
+    ::ng-deep .mat-form-field-outline {
+      border-radius: 6px;
+    }
+  
+    ::ng-deep .mat-select-value {
+      font-size: 0.95rem;
+    }
+  }
+
+
+  .u-select-container {
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .u-select-label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .u-select {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    background-color: white;
+    transition: border-color 0.2s ease-in-out;
+  
+    &:focus {
+      border-color: #f4b500; // vakıfbank sarısı
+      box-shadow: 0 0 0 2px rgba(244, 181, 0, 0.25);
+    }
+  }
+
+
+  

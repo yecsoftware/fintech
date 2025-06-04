@@ -1,0 +1,9 @@
+
+.u-row {
+  display: flex;              // satır içine yerleştir
+  flex-wrap: wrap;            // alt satıra taşabilsin
+  gap: 0.7rem;                  // kolonlar arasında boşluk olsun
+  width: 100%;                // satır tüm sayfayı kaplasın
+  box-sizing: border-box;
+}
+

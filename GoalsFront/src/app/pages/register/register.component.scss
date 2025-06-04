@@ -1,0 +1,28 @@
+.wrapper {
+    width: 400px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-box {
+    position: relative;
+    margin-bottom: 20px;
+  
+    input {
+      width: 100%;
+      padding: 12px 40px 12px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    i {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+  }

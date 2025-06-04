@@ -1,0 +1,15 @@
+<div>Hoşgeldiniz {{service.name| name|uppercase}}</div>
+<div>Tarih {{service.date|date:'dd.mm.yyyy hh.mm.ss'}}</div>
+<div>Maas {{service.salary |currency:'TRY':'symbol-narrow':''}}</div>
+
+<h1>Service Örneği</h1>
+<div>
+    <input [(ngModel)]="service.work">
+    <button (click)="service.save()">save</button>
+</div>
+<div>
+    <app-service-ornek-2>
+
+    </app-service-ornek-2>
+
+</div>

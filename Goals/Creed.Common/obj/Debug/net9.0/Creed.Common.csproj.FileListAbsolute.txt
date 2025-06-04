@@ -1,0 +1,13 @@
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/bin/Debug/net9.0/Creed.Common.deps.json
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/bin/Debug/net9.0/Creed.Common.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/bin/Debug/net9.0/Creed.Common.pdb
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.AssemblyInfoInputs.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.AssemblyInfo.cs
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.csproj.CoreCompileInputs.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.sourcelink.json
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/refint/Creed.Common.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.pdb
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/ref/Creed.Common.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Creed.Common/obj/Debug/net9.0/Creed.Common.csproj.AssemblyReference.cache

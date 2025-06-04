@@ -1,0 +1,142 @@
+// $primary-color: #007bff;
+// $secondary-color: #6c757d;
+// $danger-color: #dc3545;
+// $white-color: #fff;
+// $button-padding: 10px 20px;
+// $border-radius: 4px;
+// $font-size: 1rem;
+// $font-weight: 500;
+// $transition-speed: 0.3s;
+// $disabled-opacity: 0.6;
+// $hover-darken-amount: 15%;
+// $background-color: backgroundColor ; // Hover için renk koyulaştırma oranı
+
+// Ana Buton Stili
+// .u-button {
+//   padding: $button-padding;
+//   border: none;
+//   border-radius: $border-radius;
+//   cursor: pointer;
+//   font-size: $font-size;
+//   transition: background-color $transition-speed ease, opacity $transition-speed ease;
+//   font-weight: $font-weight;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 8px;
+//   color: $white-color; // Varsayılan metin rengi
+
+//   // Disabled durumu
+//   &:disabled { // '&' üst seçiciyi (.u-button) temsil eder
+//     cursor: not-allowed;
+//     opacity: $disabled-opacity;
+//   }
+
+//   // Buton Tipleri (Nesting kullanarak)
+//   &.u-button-primary {
+//     background-color: $primary-color;
+//     &:not(:disabled):hover {
+//       background-color: darken($primary-color, $hover-darken-amount); // SCSS darken fonksiyonu
+//     }
+//   }
+
+//   &.u-button-secondary {
+//     background-color: $secondary-color;
+//     &:not(:disabled):hover {
+//       background-color: darken($secondary-color, $hover-darken-amount);
+//     }
+//   }
+
+//   &.u-button-danger {
+//     background-color: $danger-color;
+//     &:not(:disabled):hover {
+//       background-color: darken($danger-color, $hover-darken-amount);
+//     }
+//   }
+// }
+
+
+
+$primary-color: #fdb913;
+$secondary-color: #000;
+$white: #fff;
+// $border-radius-lg: 40px;
+
+// .u-btn,
+// button {
+//   max-width: 500px;
+//   outline: none;
+//   border: none;
+//   width: 100%;
+//   height: 50px;
+//   background: $secondary-color;
+//   border-radius: $border-radius-lg;
+//   font-size: 18px;
+//   font-weight: bold;
+//   color: $white;
+//   cursor: pointer;
+//   transition: 0.3s;
+
+//   &:hover {
+//     background-color: $primary-color;
+//     color: $secondary-color;
+//   }
+// }
+
+// .u-btn {
+//   max-width: 600px;
+//   background: $secondary-color;
+//   color: $white;
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+//   &:hover {
+//     background: $primary-color;
+//     color: $secondary-color;
+//   }
+// }
+
+// button {
+//   padding: 0.5rem 1rem;
+//   border: none;
+//   border-radius: 4px;
+//   font-weight: 600;
+//   cursor: pointer;
+
+//   &.btn-primary {
+//     background-color: #007bff;
+//     color: white;
+//   }
+
+//   &.btn-secondary {
+//     background-color: #6c757d;
+//     color: white;
+//   }
+
+//   &.btn-danger {
+//     background-color: #dc3545;
+//     color: white;
+//   }
+// }
+
+
+
+
+
+
+
+
+// u-button.component.scss
+
+.dark-theme {
+  background-color: black !important;
+  color: white !important;
+
+  &:hover {
+    background-color: #FFD700 !important; // VakıfBank sarısı
+    color: black !important;
+  }
+}
+
+
+
+

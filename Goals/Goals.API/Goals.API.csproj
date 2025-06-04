@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Creed.DataAccess\Creed.DataAccess.csproj" />
+      <ProjectReference Include="..\Goals.Common\Goals.Common.csproj" />
+      <ProjectReference Include="..\Goals.Common\Goals.Common.csproj" />
+      <ProjectReference Include="..\Goals.Service\Goals.Service.csproj" />
+      <ProjectReference Include="..\WebApplication1\WebApplication1.csproj" />
+    </ItemGroup>
+
+</Project>

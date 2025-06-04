@@ -1,0 +1,15 @@
+<div class="u-form-section">
+    <div class="u-header" (click)="toggleCollapse()" *ngIf="collapsible">
+      {{ title }}
+      <span class="arrow">{{ isCollapsed ? '▼' : '▲' }}</span>
+    </div>
+  
+    <div class="u-header" *ngIf="!collapsible">
+      {{ title }}
+    </div>
+  
+    <div class="u-content" *ngIf="!isCollapsed">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  

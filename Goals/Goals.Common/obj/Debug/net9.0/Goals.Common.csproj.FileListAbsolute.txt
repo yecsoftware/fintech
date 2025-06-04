@@ -1,0 +1,13 @@
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/bin/Debug/net9.0/Goals.Common.deps.json
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/bin/Debug/net9.0/Goals.Common.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/bin/Debug/net9.0/Goals.Common.pdb
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.csproj.AssemblyReference.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.AssemblyInfoInputs.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.AssemblyInfo.cs
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.csproj.CoreCompileInputs.cache
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.sourcelink.json
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/refint/Goals.Common.dll
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/Goals.Common.pdb
+/Users/yunusemrecoskun/RiderProjects/Goals/Goals.Common/obj/Debug/net9.0/ref/Goals.Common.dll

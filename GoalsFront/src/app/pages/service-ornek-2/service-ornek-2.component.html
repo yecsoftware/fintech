@@ -1,0 +1,11 @@
+
+<div>
+    <input type="search" [(ngModel)]="search" placeholder="Search something" />
+</div>
+
+<ul>
+    
+    @for (item of service.todos | search:search ; track item) {
+        <li>{{item}}</li>
+    }
+</ul>

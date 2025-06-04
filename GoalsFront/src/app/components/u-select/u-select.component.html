@@ -1,0 +1,27 @@
+<!-- <mat-form-field>
+  <mat-label>Cars</mat-label>
+  <mat-select>
+    <mat-optgroup label="Swedish Cars">
+      <mat-option value="volvo">Volvo</mat-option>
+      <mat-option value="saab">Saab</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="German Cars">
+      <mat-option value="mercedes">Mercedes</mat-option>
+      <mat-option value="audi">Audi</mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field> -->
+
+
+
+<div class="u-select-container">
+  <label *ngIf="label" class="u-select-label">{{ label }}</label>
+  <select [ngModel]="model" (ngModelChange)="onChange($event)" class="u-select">
+    <option [value]="null" disabled selected>Seçiniz...</option>
+    <option *ngFor="let item of items" [value]="item[valueKey]">
+      {{ item[displayKey] }}
+    </option>
+  </select>
+</div>
+
+

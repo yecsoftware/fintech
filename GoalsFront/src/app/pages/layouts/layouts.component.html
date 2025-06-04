@@ -1,0 +1,47 @@
+<div class="layout-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <a href="#">
+        <img src="https://www.vakifbank.com.tr/Templates/Default/assets/img/logo.svg" alt="logo" />
+      </a>
+    </div>
+    <button class="menu-toggle" (click)="toggleSidebar()">☰</button>
+    <div class="welcome" *ngIf="user">Hoş geldiniz {{ user.UserName }}!</div>
+
+    <!-- Desktop buton -->
+    <nav class="nav-menu desktop-only">
+      <u-button label="Çıkış Yap" actionType="logout" theme="dark"></u-button>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <div class="main">
+    <!-- Sidebar -->
+    <aside class="sidebar" [ngClass]="{ open: sidebarOpen }">
+      <nav class="side-nav">
+        <a routerLink="/layout/dashboard" routerLinkActive="active-link">Dashboard Page</a>
+        <a routerLink="/layout/home" routerLinkActive="active-link">Home</a>
+        <a routerLink="/layout/useroperations" routerLinkActive="active-link">Kullanıcı İşlemleri</a>
+        <a routerLink="/layout/introduction" routerLinkActive="active-link">Introduction</a>
+        <a routerLink="/layout/transaction" routerLinkActive="active-link">Transaction</a>
+        <a routerLink="/layout/customer" routerLinkActive="active-link">Customer</a>
+
+        <!-- Mobilde görünür çıkış butonu -->
+        <div class="logout-button mobile-only">
+          <u-button label="Çıkış Yap" actionType="logout" theme="dark"></u-button>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Page Content -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 My Company. All rights reserved.</p>
+  </footer>
+</div>

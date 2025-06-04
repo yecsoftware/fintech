@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "kUREUL1b06HHywVBdlyBujjP9pYNgqvBw5MnfBmB71U=",
+  "Source": "Goals.API",
+  "BasePath": "_content/Goals.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/Users/yunusemrecoskun/RiderProjects/Goals/WebApplication1/WebApplication1.csproj",
+      "Version": 2,
+      "Source": "WebApplication1",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

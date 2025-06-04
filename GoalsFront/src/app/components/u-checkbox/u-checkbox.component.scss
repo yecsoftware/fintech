@@ -1,0 +1,14 @@
+label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .example-margin {
+   font-weight: bold;
+  }

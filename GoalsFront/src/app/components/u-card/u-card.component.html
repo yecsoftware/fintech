@@ -1,0 +1,120 @@
+<!-- <div class="u-card">
+  <div class="u-card-header">
+    {{ title }}
+  </div>
+
+  <div class="u-card-body" *ngIf="data">
+    <p><strong>Adı:</strong> {{ data.CustomerName }}</p>
+    <p><strong>Numara:</strong> {{ data.CustomerNumber }}</p>
+    <p><strong>Adres:</strong> {{ data.Address }}</p>
+    <p><strong>Durum:</strong> {{ data.Status }}</p>
+  </div>
+
+  <div class="u-card-body" *ngIf="!data">
+    <p>Veri yükleniyor...</p>
+  </div>
+</div> -->
+
+
+
+<!-- <div class="u-card">
+  <div class="u-card-header">
+    <ng-container *ngTemplateOutlet="header?.templateRef ?? null"></ng-container>
+  </div>
+
+  <div class="u-card-content">
+    <ng-container *ngTemplateOutlet="content?.templateRef ?? null; context: { $implicit: data }"></ng-container>
+  </div>
+
+  <div class="u-card-footer">
+    <ng-container *ngTemplateOutlet="footer?.templateRef ?? null"></ng-container>
+  </div>
+</div> -->
+
+
+<!-- <div class="collapsible-bar">
+  <div class="bar-header" (click)="toggle()">
+    <span class="title">{{ title }}</span>
+    <button class="toggle-button">{{ isOpen ? '−' : '+' }}</button>
+  </div>
+
+  <div class="bar-content" *ngIf="isOpen">
+    <ng-content></ng-content>
+  </div>
+</div> -->
+
+<!-- <div maxwidth="100px" margin="auto" padding="1em">
+  <mat-card class="mat-card"  max-width="100px" margin="auto" padding="1em">
+    <mat-card-header>
+      <mat-card-title>Kullanıcı Bilgisi</mat-card-title>
+      <mat-card-subtitle >Kullanıcı1</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <ul><ng-content ngFor letproduct
+        [ngforof] >
+
+      </ng-content>Emre</ul>
+      
+    </mat-card-content>
+
+    <mat-card-footer>
+      <ng-container></ng-container>
+    </mat-card-footer>
+  </mat-card>
+</div> -->
+
+
+
+<!-- <div class="u-card">
+  <h2>{{ title }}</h2>
+
+  <div class="card-header">
+    <ng-template [ngTemplateOutlet]="header?.templateRef || null"></ng-template>
+  </div>
+
+  <div class="card-content">
+    <ng-template [ngTemplateOutlet]="content?.templateRef || null"></ng-template>
+  </div>
+
+  <div class="card-footer">
+    <ng-template [ngTemplateOutlet]="footer?.templateRef || null"></ng-template>
+  </div>
+</div> -->
+
+
+<mat-card class="u-card" appearance="outlined">
+  <mat-card-header class="u-card-header" *ngIf="cardHeader">
+    <div mat-card-avatar class="example-header-image" *ngIf="cardAvatar"></div>
+    <mat-card-title *ngIf="cardTitle">
+      <ng-container *ngTemplateOutlet="cardTitle.templateRef"></ng-container>
+    </mat-card-title>
+    <mat-card-subtitle *ngIf="cardSubtitle">   
+      <ng-container *ngTemplateOutlet="cardSubtitle.templateRef"></ng-container>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Photo of a Shiba Inu">
+  <mat-card-content *ngIf="cardContent">
+    <ng-container *ngTemplateOutlet="cardContent.templateRef"></ng-container>
+  </mat-card-content>
+  <mat-card-actions>
+    <u-button label="emre"></u-button>
+  </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+
+<!-- <div class="u-card">
+  <div class="u-card-header" *ngIf="cardHeader">
+    <ng-container *ngTemplateOutlet="cardHeader.templateRef"></ng-container>
+  </div>
+  <div class="u-card-content" *ngIf="cardContent">
+    <ng-container *ngTemplateOutlet="cardContent.templateRef"></ng-container>
+  </div>
+  <div class="u-card-header" *ngIf="cardFooter">
+    <ng-container *ngTemplateOutlet="cardFooter.templateRef"></ng-container>
+  </div> -->

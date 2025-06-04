@@ -1,0 +1,91 @@
+<u-column>
+    <div *expansionPanelHeader></div>
+    <u-expansion-panel class="panel-spacing" expanderDescription="You can perform create customer."
+        expanderTitle="Customer Operations CREATE">
+        <div *expansionPanelContent>
+            <u-row>
+                <u-column [width]="30"><u-input caption="Müşteri TC Kimlik Numarası*"
+                        [(value)]="customerData.TCNumber" /></u-column>
+                <u-column [width]="30"><u-input caption="Müşteri Adı*"
+                        [(value)]="customerData.CustomerName" /></u-column>
+                <u-column [width]="30"><u-input caption="Müşteri Soyadı*"
+                        [(value)]="customerData.CustomerSurname" /></u-column>
+
+            </u-row>
+            <u-row>
+                <u-column [width]="30"><u-datepicker caption="Doğum Tarihi"></u-datepicker></u-column>
+                                <u-column [width]="30"><u-input caption="Müşteri Soyadı*"
+                        [(value)]="customerData.CustomerSurname" /></u-column>
+            </u-row>
+
+        </div>
+        <div *expansionPanelFooter>
+            <u-button (clicked)="resetCustomerData()" label="Temizle"></u-button>
+            <u-button  (clicked)="createCustomer()"   label="Kaydet" theme="dark"></u-button>
+        </div>
+    </u-expansion-panel>
+</u-column>
+
+
+
+
+<u-column>
+    <div *expansionPanelHeader></div>
+    <u-expansion-panel class="panel-spacing" expanderDescription="You can perform questioning customer."
+        expanderTitle="Customer Operations GET">
+        <div *expansionPanelContent>
+            <u-row>
+                <u-column [width]="30"><u-input caption="Müşteri Tc Kimlik Numarası*"
+                        [(value)]="customerData.TCNumber" /></u-column>
+            </u-row>
+        </div>
+        <div *expansionPanelFooter>
+            <u-button label="Temizle"></u-button>
+            <u-button label="Sorgula" (clicked)="getcustomer()" theme="dark"></u-button>
+        </div>
+    </u-expansion-panel>
+</u-column>
+
+
+<u-column>
+    <div *expansionPanelHeader></div>
+    <u-expansion-panel class="panel-spacing" expanderDescription="You can perform update customer."
+        expanderTitle="Customer Operations UPDATE">
+        <div *expansionPanelContent>
+            <u-row>
+                <u-column [width]="30"><u-input caption="Müşteri Adı*"
+                        [(value)]="customerData.CustomerName" /></u-column>
+                <u-column [width]="30"><u-input caption="Müşteri Soyadı*"
+                        [(value)]="customerData.CustomerSurname" /></u-column>
+            </u-row>
+            <u-row>
+                <u-column [width]="50"><u-input caption="Müşteri Soyadı*"
+                        [(value)]="customerData.CustomerSurname" /></u-column>
+            </u-row>
+
+        </div>
+        <div *expansionPanelFooter>
+            <u-button label="Temizle"></u-button>
+            <u-button label="Güncelle" theme="dark"></u-button>
+        </div>
+    </u-expansion-panel>
+</u-column>
+
+
+<u-column>
+    <div *expansionPanelHeader></div>
+    <u-expansion-panel class="panel-spacing" expanderDescription="You can perform delete customer."
+        expanderTitle="Customer Operations DELETE">
+        <div *expansionPanelContent>
+            <u-row>
+                <u-column [width]="50"><u-input caption="Müşteri Tc Kimlik Numarası*"
+                        [(value)]="customerData.TCNumber" /></u-column>
+
+            </u-row>
+        </div>
+        <div *expansionPanelFooter>
+            <u-button label="Temizle"></u-button>
+            <u-button label="Kullanıcı Sil" (clicked)="post()" theme="dark"></u-button>
+        </div>
+    </u-expansion-panel>
+</u-column>

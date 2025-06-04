@@ -1,0 +1,11 @@
+.expansion-panel-wrapper div:not(:last-child) {
+  margin-bottom: 1rem; // 16px veya istediğin boşluk
+}
+
+.panel-spacing {
+  margin-bottom: 1rem;
+}
+
+.expansion-panel-header *expansion-panel-header {
+  margin-bottom: 1rem; // 16px veya istediğin boşluk
+}

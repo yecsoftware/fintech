@@ -1,0 +1,28 @@
+.datepicker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: Arial, sans-serif;
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  input[type='date'] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    &:focus {
+      border-color: #fdb913;
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: #f3f3f3;
+      cursor: not-allowed;
+    }
+  }
+}
