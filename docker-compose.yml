@@ -31,6 +31,7 @@ services:
       ACCEPT_EULA: "Y"
     networks:
       - app-network
+    mem_limit: 2g
 
 networks:
   app-network:
