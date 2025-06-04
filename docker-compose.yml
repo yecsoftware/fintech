@@ -2,18 +2,17 @@ version: "3.9"
 
 services:
   backend:
-    build:
-      context: ./Goals
-      dockerfile: Dockerfile
+    image: ${DOCKER_USERNAME:-yourusername}/fintech-backend:latest
     ports:
       - "5026:5026"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5026
     networks:
       - app-network
 
   frontend:
-    build:
-      context: ./GoalsFront
-      dockerfile: Dockerfile
+    image: ${DOCKER_USERNAME:-yourusername}/fintech-frontend:latest
     ports:
       - "4200:80"
     depends_on:
