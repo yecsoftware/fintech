@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
+  production: true,
   apiUrl: 'http://backend:5026/api/'  // local geliştirme için
 };
