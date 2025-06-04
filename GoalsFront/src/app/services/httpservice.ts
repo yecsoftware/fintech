@@ -3,13 +3,17 @@ import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
 import { RequestMessage } from "../core/messages/requestMessage";
 import { ResponseMessage } from "../core/messages/responseMessage";
+import { environment } from "../../../environment.prod";
+
+
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
 
     constructor(private http: HttpClient) { }
 
-    public baseUrl: string = 'http://localhost:5026/';
+    public baseUrl: string = environment.apiUrl;
+
 
 
     public post<T>(operationName: string, data: RequestMessage): Observable<ResponseMessage>{
