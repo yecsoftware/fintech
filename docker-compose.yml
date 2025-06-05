@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      - SA_PASSWORD=YourStrong@Pass123
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    networks:
+      - app-network
+
   backend:
     build:
       context: ./Goals
@@ -10,28 +21,19 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:5026
+    depends_on:
+      - mssql
     networks:
       - app-network
 
   frontend:
     build:
       context: ./GoalsFront
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile   # Bu Dockerfile, az önce verdiğimiz "Node→Nginx" multi-stage Dockerfile olmalı
     ports:
-      - "4200:80"
+      - "4200:80"             # Host 4200’ü container 80’e yönlendiriyoruz
     depends_on:
       - backend
-    networks:
-      - app-network
-
-  mssql:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    container_name: sqlserver
-    ports:
-      - "1433:1433"
-    environment:
-      SA_PASSWORD: "YourStrong@Pass123"
-      ACCEPT_EULA: "Y"
     networks:
       - app-network
 

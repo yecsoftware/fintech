@@ -1,4 +1,5 @@
+// src/environments/environment.prod.ts (Production için)
 export const environment = {
   production: true,
-  apiUrl: '/api'  // Nginx proxy kullanacağız
+  apiUrl: '/api/'    // DİKKAT: mutlaka sonuna slash koyun
 };
