@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Creed.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff98d8ec28fbac244b2432a3b062cca58e7e0eb9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0b016d1e6aa7455e88fb444aa16ad0889aeb5cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Creed.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Creed.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

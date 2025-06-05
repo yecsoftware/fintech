@@ -9,6 +9,8 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
     networks:
       - app-network
 
@@ -29,9 +31,9 @@ services:
   frontend:
     build:
       context: ./GoalsFront
-      dockerfile: Dockerfile   # Bu Dockerfile, az önce verdiğimiz "Node→Nginx" multi-stage Dockerfile olmalı
+      dockerfile: Dockerfile
     ports:
-      - "4200:80"             # Host 4200’ü container 80’e yönlendiriyoruz
+      - "4200:80"
     depends_on:
       - backend
     networks:
@@ -40,3 +42,7 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  sql_data:
+
