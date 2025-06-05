@@ -19,14 +19,10 @@ jobs:
           script: |
             cd /home/azureuser/fintech-app
             git pull origin main
-
             # Angular prod build al (önceden alınmadıysa)
             cd GoalsFront
             npm install
             npm run build -- --configuration=production
             cd ..
-
             docker compose down
             docker compose up -d --build
-
-
