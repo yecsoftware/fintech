@@ -6,9 +6,7 @@ using Goals.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Add services to the container.
 
@@ -17,8 +15,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAll", policy =>
     {
         policy.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader();
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
 
@@ -27,7 +25,6 @@ builder.Services.AddControllers()
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
     });
-
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -46,39 +43,33 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
-            ClockSkew = TimeSpan.Zero // Zaman farkı toleransını kapat
+            ClockSkew = TimeSpan.Zero
         };
     });
 
 builder.Services.AddAuthorization();
-
 builder.Services.Configure<Token>(builder.Configuration.GetSection("Jwt"));
-builder.Services.AddSwaggerGen();
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddSingleton<Token>();
 builder.Services.AddScoped<CustomerService>();
 builder.Services.AddScoped<AccountService>();
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Swagger ve OpenAPI sadece development'ta
 if (app.Environment.IsDevelopment())
 {
-    app.UseCors("AllowAll");
     app.UseSwagger();
     app.UseSwaggerUI();
     app.MapOpenApi();
-    
 }
 
+// CORS her ortamda çalışmalı ve üstte olmalı
 app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
