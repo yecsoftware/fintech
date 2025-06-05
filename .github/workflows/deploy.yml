@@ -17,12 +17,16 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            set -e  # herhangi bir komut hata verirse çık
             cd /home/azureuser/fintech-app
             git pull origin main
-            # Angular prod build al (önceden alınmadıysa)
+
+            echo "🔧 Frontend build başlıyor"
             cd GoalsFront
-            npm install
-            npm run build -- --configuration=production
+            npm install --legacy-peer-deps
+            npm run build -- --configuration=production || { echo "❌ Angular build başarısız"; exit 1; }
             cd ..
+
+            echo "🐳 Docker compose başlatılıyor"
             docker compose down
             docker compose up -d --build
