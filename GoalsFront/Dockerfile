@@ -1,14 +1,3 @@
-FROM node:20 AS build
-WORKDIR /app
-COPY . .
-RUN npm install
-RUN npm run build -- --configuration=production
-
-FROM nginx:alpine
-COPY --from=build /app/dist/goals-front/browser /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-
 
 # 1. Aşama: Angular kodunu build alalım
 FROM node:20 AS builder
@@ -25,7 +14,7 @@ RUN npm run build -- --configuration=production
 FROM nginx:stable-alpine
 
 # 1. aşamada oluşturulan dist klasörünü Nginx webroot'a kopyala
-COPY --from=builder /app/dist/GoalsFront /usr/share/nginx/html
+COPY --from=builder /app/dist/goals-front/browser /usr/share/nginx/html
 
 # Kendi nginx.conf dosyamızı override edelim
 # (Önce bu dosyayı projede: GoalsFront/nginx.conf olarak oluşturmalısınız)
