@@ -34,6 +34,7 @@ export const routes: Routes = [
     { path: 'ngcontent', component: NgcontentComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'verify', component: VerifyComponent},
 
     {
       path: 'layout',
@@ -48,7 +49,7 @@ export const routes: Routes = [
         { path: 'dashboard/:params', component: DashboardComponent },
         { path: 'transaction', component: TransactionComponent },
         {path: 'customer', component: CustomerComponent},
-        { path: 'verify', component: VerifyComponent},
+        
 
       ],
     },

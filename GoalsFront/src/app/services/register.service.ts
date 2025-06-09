@@ -87,13 +87,13 @@ register = (formData: any) => {
     });
 
     setTimeout(() => {
-      this.snackBar.open('🔁 Giriş sayfasına yönlendiriliyorsunuz...', '', {
+      this.snackBar.open('🔁 Doğrulama ekranına yönlendiriliyorsunuz...', '', {
         duration: 2000,
         panelClass: ['mat-info-snackbar']
       });
 
       setTimeout(() => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/verify']);
       }, 2000);
     }, 1500);
   });

@@ -126,9 +126,28 @@ public class EUser
         var result = _database.ExecuteNonQuery("sp_UpdateUserPhoto", parameters);
         return result > 0;
     }
+    
+    
+    public bool VerifyPhoneCode(string phone, string code)
+    {
+        var parameters = new DatabaseParameters();
+        parameters.Add("UserPhone", phone);
+        parameters.Add("VerificationCode", code);
+
+        var result = _database.ExecuteDataSet("sp_VerifyPhoneCode", parameters);
+
+        if (result.Tables.Count > 0 && result.Tables[0].Rows.Count > 0)
+        {
+            var isVerified = Convert.ToBoolean(result.Tables[0].Rows[0]["IsVerified"]);
+            return isVerified;
+        }
+
+        return false;
+    }
 
 
-    public UserDto CreateUser(UserDto dto)
+
+    public UserDto CreateUser(UserDto dto, string code)
     {
         var parameters = new DatabaseParameters();
         

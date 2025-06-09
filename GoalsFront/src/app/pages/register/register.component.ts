@@ -88,7 +88,6 @@ register() {
 
   this.registerService.register(this.registerData); // ✅ formdan gelen data burada
 
-  this.router.navigate(['/verify']);
 }
 
   // Form geçerlilik kontrolü

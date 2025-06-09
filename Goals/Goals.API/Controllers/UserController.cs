@@ -93,6 +93,14 @@ public class UserController:ControllerBase
     }
     
     
+    public IActionResult VerifyUser([FromBody] RequestMessage request)
+    {
+        var result = _userService.VerifySmsCode(request);
+        return Ok(result);
+        
+    }
+    
+    
     [HttpPost]
     public IActionResult RefreshToken([FromBody] RefreshRequestDto request)
     {

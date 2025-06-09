@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verify',
@@ -10,13 +12,18 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./verify.component.scss']
 })
 export class VerifyComponent {
+  phoneNumber: string = '';  // kullanıcıdan alınacak
   code: string[] = ['', '', '', '', '', ''];
+  message: string = '';
+  loading = false;
+
+  constructor(private http: HttpClient,private router:Router) {}
 
   focusNext(event: any, index: number) {
     const input = event.target;
     if (input.value.length === 1 && index < 5) {
       const nextInput = input.parentElement.children[index + 1];
-      nextInput.focus();
+      if (nextInput) nextInput.focus();
     }
   }
 
@@ -24,11 +31,26 @@ export class VerifyComponent {
     return this.code.every(d => d.trim().length === 1);
   }
 
-  verifyCode() {
-    const finalCode = this.code.join('');
-    // Buraya verify API çağrısı yapılacak
-    console.log('Girilen kod:', finalCode);
-    // this.httpService.verifySmsCode(phoneNumber, finalCode).subscribe(...)
-  }
+verifyCode() {
+  const finalCode = this.code.join('');
+  const request = {
+    UserPhoneNumber: this.phoneNumber,  // önceki ekrandan alman gerekir
+    VerificationCode: finalCode
+  };
+
+  this.http.post('/api/user/verifySmsCode', request).subscribe({
+    next: (res: any) => {
+      if (res.isSuccess) {
+        alert('Telefon doğrulandı!');
+        this.router.navigate(['/login']);
+      } else {
+        alert('Kod yanlış veya zaten doğrulanmış!');
+      }
+    },
+    error: () => alert('Sunucu hatası oluştu.')
+  });
 }
+
+}
+
 

@@ -16,6 +16,22 @@ public class UserService
     {
         connectionString = configuration.GetConnectionString("DefaultConnection");
     }
+
+
+    public ResponseMessage VerifySmsCode(RequestMessage request)
+    {
+        var phone = request.Get<string>("UserPhoneNumber");
+        var code = request.Get<string>("VerificationCode");
+
+        var eUser = new EUser(new Database(connectionString));
+        var isSuccess = eUser.VerifyPhoneCode(phone, code);
+
+        if (isSuccess)
+            return ResponseMessage.Success("Doğrulama başarılı, hesabınız aktif edildi.");
+    
+        return ResponseMessage.Error("Kod hatalı veya daha önce doğrulanmış.");
+        
+    }
     
     public ResponseMessage GetUser(RequestMessage request)
     {
@@ -80,14 +96,41 @@ public class UserService
         {
             dto.UserPhotoPath = base64;                        // ✅ Base64 değeri DTO'ya yaz
         }
-
+        
         var hashedPassword = _hasher.HashPassword(null, dto.UserPassword);
         dto.UserPassword = hashedPassword;
+        
+
+
 
         EUser eUser = new EUser(new Database(connectionString));
-        var response = eUser.CreateUser(dto);
+        var response = eUser.CreateUser(dto, ""); // Şu an için SMS kodu göndermiyoruz, boş bırakıyoruz
 
         return ResponseMessage.Success(response);
     }
+    
+    
+    public async Task<ResponseMessage> RegisterUserAsync(RequestMessage request)
+    {
+        var dto = request.Get<UserDto>();
+        var base64 = request._items["Base64File"]?.ToString();
+        if (!string.IsNullOrEmpty(base64))
+            dto.UserPhotoPath = base64;
+
+        dto.UserPassword = _hasher.HashPassword(null, dto.UserPassword);
+
+        var code = new Random().Next(100000, 999999).ToString();
+
+        // SMS Gönderimi
+        var smsService = new TextMessageService();
+        await smsService.SendSmsAsync(dto.UserPhoneNumber, $"Doğrulama Kodunuz: {code}");
+
+        // EUser üzerinden kayıt
+        EUser eUser = new EUser(new Database(connectionString));
+        var response = eUser.CreateUser(dto, code); // Aşağıda sp’ye de gömüyoruz
+
+        return ResponseMessage.Success(response);
+    }
+
     
 }
