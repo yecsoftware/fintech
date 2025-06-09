@@ -19,7 +19,13 @@ jobs:
           script: |
             set -e  # herhangi bir komut hata verirse çık
             cd /home/azureuser/fintech-app
+
+            echo "🌐 Kod temizleniyor ve güncelleniyor..."
+            git reset --hard
+            git clean -fd
             git pull origin main
+
+            
 
             echo "🔧 Frontend build başlıyor"
             cd GoalsFront
