@@ -1,0 +1,18 @@
+<div class="verify-wrapper">
+  <h2>Telefon Doğrulama</h2>
+  <p>Lütfen telefonunuza gelen 6 haneli kodu girin.</p>
+
+  <form (ngSubmit)="verifyCode()" #form="ngForm">
+    <div class="code-inputs">
+      <input type="text" maxlength="1" [(ngModel)]="code[0]" name="c1" required (input)="focusNext($event, 0)">
+      <input type="text" maxlength="1" [(ngModel)]="code[1]" name="c2" required (input)="focusNext($event, 1)">
+      <input type="text" maxlength="1" [(ngModel)]="code[2]" name="c3" required (input)="focusNext($event, 2)">
+      <input type="text" maxlength="1" [(ngModel)]="code[3]" name="c4" required (input)="focusNext($event, 3)">
+      <input type="text" maxlength="1" [(ngModel)]="code[4]" name="c5" required (input)="focusNext($event, 4)">
+      <input type="text" maxlength="1" [(ngModel)]="code[5]" name="c6" required>
+    </div>
+
+    <button type="submit" [disabled]="!isCodeComplete()" class="verify-button">Doğrula</button>
+  </form>
+</div>
+

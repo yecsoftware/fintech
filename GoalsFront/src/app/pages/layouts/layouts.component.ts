@@ -15,6 +15,7 @@ import { signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { SessionDialogComponent } from '../../components/session-dialog/session-dialog.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-layouts',
@@ -32,6 +33,7 @@ export class LayoutsComponent implements OnInit {
   http = inject(HttpClient);
 
   constructor(
+    private userService: UserService,
     public logoutService: LogoutService,
     private svcHttp: HttpService,
     private router: Router,
@@ -167,6 +169,7 @@ export class LayoutsComponent implements OnInit {
 
       if (user) {
         this.user = user;
+        this.userService.setUser(user);
         sessionStorage.setItem('user', JSON.stringify(user));
         this.cd.detectChanges(); // DOM'u güncelle
       }

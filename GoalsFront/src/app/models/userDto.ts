@@ -4,6 +4,8 @@ export class UserDto{
     UserEmail?: string;
     UserPassword?: string;
     UserPhoneNumber?: string;
+    UserRole?: string;
+    UserPhotoPath?: string;
 
 }
 

@@ -57,4 +57,23 @@ public class MssqlDatabase:BaseDatabase
         
         return null;
     }
+
+    public override int ExecuteNonQuery(string spName, DatabaseParameters parameters)
+    {
+        using (var connection = new SqlConnection(ConnectionString))
+        {
+            using (var command = new SqlCommand(spName, connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                foreach (var param in parameters.GetParameters())
+                {
+                    command.Parameters.AddWithValue("@" + param.Name, param.Value ?? DBNull.Value);
+                }
+
+                connection.Open();
+                return command.ExecuteNonQuery(); // etkilenen satır sayısı
+            }
+        }
+    }
 }

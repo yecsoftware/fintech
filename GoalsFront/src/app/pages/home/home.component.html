@@ -6,10 +6,10 @@
 <div class="container">
 <u-card class="container">
   <div *cardSubtitle>
-    <h5>Alt Başlık</h5>
+   <h5 *ngIf="user as u">{{ u.UserName }}</h5>
   </div>
   <div *cardTitle>
-    <h2>Kullanıcı</h2>
+    <h2 *ngIf="user as u">{{u.UserRole}}</h2>
   </div>
   <div *cardContent>
     <b>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus blanditiis aperiam impedit cum recusandae id totam itaque beatae officia, quasi, cupiditate, rerum eaque veritatis minus mollitia natus sed incidunt consequuntur.</b>
@@ -18,7 +18,7 @@
     <i>Created By Emre</i>
   </div>
   <div *cardHeader>
-    <div mat-card-avatar class="example-header-image" *cardAvatar></div>
+    <div mat-card-avatar  class="example-header-image" *cardAvatar><img [src]="user?.UserPhotoPath" alt="Profil Fotoğrafı"> </div>
     <h4>Başlık</h4>
   </div>
 </u-card>

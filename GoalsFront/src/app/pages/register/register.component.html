@@ -1,77 +1,167 @@
-<div class="wrapper">
-    <div>
-      <form #registerForm="ngForm">
-        <h1>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/8/87/Vak%C4%B1fbank-logo.svg"
-            alt="Vakıfbank Logo"
-          />
-        </h1>
-  
-        <div class="input-box">
-          <input
-            type="text"
-            placeholder="User Name Surname"
-            name="FirstName"
-            required
-            [(ngModel)]="registerData.UserName"
-          />
-          <i class="bx bxs-user"></i>
-        </div>
-  
+<div class="register-card">
+  <form #form="ngForm" (ngSubmit)="register()" novalidate>
+    <h2 class="logo">
+      <a href="/"> <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Vak%C4%B1fbank-logo.svg"
+          alt="Vakifbank" /></a>
+    </h2>
+    <!-- USERNAME -->
+    <div class="form-group">
+      <input type="text" name="UserName" placeholder="Ad Soyad" required [(ngModel)]="registerData.UserName"
+        #userName="ngModel" />
+      <div class="error" *ngIf="(form.submitted || userName.touched) && !registerData.UserName">
+        İsim gereklidir.
+      </div>
 
-  
-        <div class="input-box">
-          <input
-            type="email"
-            placeholder="Email"
-            name="UserEmail"
-            required
-            [(ngModel)]="registerData.UserEmail"
-          />
-          <i class="bx bxs-envelope"></i>
-        </div>
-  
-        <div class="input-box">
-          <input
-            type="password"
-            placeholder="Password"
-            name="UserPassword"
-            required
-            [(ngModel)]="registerData.UserPassword"
-          />
-          <i class="bx bxs-lock-alt"></i>
-        </div>
-  
-        <div class="input-box">
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            name="ConfirmPassword"
-            required
-          />
-          <i class="bx bxs-lock-alt"></i>
-        </div>
-  
-        <div class="remember-forgot">
-          <u-checkbox label="Accept Terms and Conditions">Accept Terms</u-checkbox>
-        </div>
-  
-        <u-button
-          class="u-button"
-          [label]="'Register'"
-          [actionType]="'register'"
-          theme="dark"
-        ></u-button>
-  
-        <div class="register-link">
-          <p>
-            Already have an account?
-            <a routerLink="/login">Login</a>
-          </p>
-        </div>
-      </form>
+      <div class="error" *ngIf="(form.submitted || userName.touched) && !validateUserName(registerData.UserName)">
+        Lütfen sadece harf ve boşluk içeren geçerli bir isim girin.
+      </div>
     </div>
-  </div>
 
-  
+    <!-- EMAIL -->
+    <div class="form-group">
+      <input type="email" name="UserEmail" placeholder="E-posta" required [(ngModel)]="registerData.UserEmail"
+        #userEmail="ngModel" (blur)="onEmailBlur()" (input)="onEmailInput()" />
+      <div class="error"
+        *ngIf="(form.submitted || userEmail.touched || emailTouched) && !validateEmail(registerData.UserEmail)">
+        Geçerli bir e-posta girin.
+      </div>
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="form-group">
+      <input type="password" name="UserPassword" placeholder="Şifre" required [(ngModel)]="registerData.UserPassword"
+        #userPassword="ngModel" (blur)="onPasswordBlur()" (input)="onPasswordInput()" />
+      <div class="error"
+        *ngIf="(form.submitted || userPassword.touched || passwordTouched) && !validatePassword(registerData.UserPassword)">
+        Şifre en az 8 karakter olmalı ve büyük harf, küçük harf, rakam ve özel karakter içermelidir.
+      </div>
+    </div>
+
+    <!-- CONFIRM PASSWORD -->
+    <div class="form-group">
+      <input type="password" name="ConfirmPassword" placeholder="Şifreyi Onayla" required
+        [(ngModel)]="registerData.ConfirmPassword" #confirmPassword="ngModel" (blur)="onConfirmPasswordBlur()"
+        (input)="onConfirmPasswordInput()" />
+      <div class="error"
+        *ngIf="(form.submitted || confirmPassword.touched || confirmPasswordTouched) && registerData.ConfirmPassword && registerData.UserPassword !== registerData.ConfirmPassword">
+        Şifreler uyuşmuyor.
+      </div>
+    </div>
+
+    <!-- TELEFON -->
+    <div class="form-group">
+      <input type="tel" name="UserPhoneNumber" placeholder="Telefon Numarası" required
+        [(ngModel)]="registerData.UserPhoneNumber" #userPhoneNumber="ngModel" (input)="phoneTouched = true" />
+      <div class="error"
+        *ngIf="(form.submitted || userPhoneNumber.touched || phoneTouched) && !validatePhone(registerData.UserPhoneNumber)">
+        Geçerli bir telefon numarası girin. (örnek: 05XXXXXXXXX)
+      </div>
+    </div>
+
+    <!-- FOTOĞRAF -->
+    <div class="form-group">
+      <input type="file" accept="image/*" (change)="onImageSelected($event)" />
+    </div>
+
+    <!-- TERMS -->
+    <div class="form-group checkbox">
+      <input type="checkbox" name="Terms" [(ngModel)]="registerData.Terms" #terms="ngModel"
+        (change)="onTermsCheckboxChange($event)" />
+      <label>Şartları ve koşulları kabul ediyorum</label>
+      <a href="/login" class="login-link">Giriş Yap</a>
+      <div class="error" *ngIf="(form.submitted || terms.touched) && !registerData.Terms">
+        Kullanım şartlarını kabul etmelisiniz.
+      </div>
+    </div>
+
+
+    <!-- TERMS CARD -->
+    <div class="terms-card-overlay" *ngIf="showTermsModal" (click)="closeTermsModal()">
+      <div class="terms-card" (click)="$event.stopPropagation()">
+        <div class="terms-card-header">
+          Vakıfbank Bankacılık Hizmetleri Sözleşmesi
+        </div>
+        <div class="terms-card-body" #modalBody (scroll)="onScroll($event)">
+          <!-- İçerik olduğu gibi bırakılabilir, yukarıda verdiğiniz içerik geçerli -->
+          <!-- ... tüm sözleşme metni buraya ... -->
+
+          <div class="terms-content">
+            <h4>1. TARAFLAR</h4>
+            <p>Bu sözleşme Türkiye Vakıflar Bankası T.A.O. (bundan sonra "Banka" olarak anılacaktır) ile müşteri
+              arasında imzalanmıştır.</p>
+
+            <h4>2. KAPSAM</h4>
+            <p>Bu sözleşme, Banka tarafından sunulan tüm bankacılık hizmetlerini kapsamaktadır. Müşteri, bu hizmetleri
+              kullanarak aşağıdaki şartları kabul etmiş sayılır.</p>
+
+            <h4>3. HESAP İŞLEMLERİ</h4>
+            <p>3.1. Müşteri, hesap açtırırken gerçek ve doğru bilgiler vermekle yükümlüdür.</p>
+            <p>3.2. Hesap bakiyesinin yetersiz olması durumunda işlemler gerçekleştirilemez.</p>
+            <p>3.3. Müşteri, hesap hareketlerini düzenli olarak kontrol etmekle yükümlüdür.</p>
+
+            <h4>4. GÜVENLİK</h4>
+            <p>4.1. Müşteri, şifre ve güvenlik kodlarını gizli tutmakla yükümlüdür.</p>
+            <p>4.2. Şifre paylaşımından doğacak zararlardan müşteri sorumludur.</p>
+            <p>4.3. Şüpheli işlemlerin derhal bankaya bildirilmesi gerekmektedir.</p>
+
+            <h4>5. KOMİSYON VE MASRAFLAR</h4>
+            <p>5.1. Banka, sunduğu hizmetler karşılığında komisyon alabilir.</p>
+            <p>5.2. Komisyon oranları Banka tarafından belirlenir ve değiştirilebilir.</p>
+            <p>5.3. Değişiklikler müşteriye önceden bildirilir.</p>
+
+            <h4>6. SORUMLULUKLAR</h4>
+            <p>6.1. Banka, sistem arızalarından kaynaklanan gecikmelerden sorumlu değildir.</p>
+            <p>6.2. Müşteri, hesap bilgilerinin güncel tutulmasından sorumludur.</p>
+            <p>6.3. Mücbir sebep halleri her iki tarafı da sorumluluktan kurtarır.</p>
+
+            <h4>7. GİZLİLİK</h4>
+            <p>7.1. Banka, müşteri bilgilerini gizli tutar.</p>
+            <p>7.2. Yasal zorunluluklar dışında üçüncü kişilerle paylaşılmaz.</p>
+            <p>7.3. Müşteri, Banka'nın gizlilik politikasını kabul eder.</p>
+
+            <h4>8. SÖZLEŞME DEĞİŞİKLİKLERİ</h4>
+            <p>8.1. Banka, sözleşme şartlarını değiştirme hakkını saklı tutar.</p>
+            <p>8.2. Değişiklikler 30 gün öncesinden bildirilir.</p>
+            <p>8.3. Müşteri itiraz etmezse değişiklikleri kabul etmiş sayılır.</p>
+
+            <h4>9. SÖZLEŞME İPTALİ</h4>
+            <p>9.1. Her iki taraf da sözleşmeyi 15 gün önceden haber vererek iptal edebilir.</p>
+            <p>9.2. İptal durumunda tüm borçlar kapatılmalıdır.</p>
+            <p>9.3. İptal sonrası hizmetler durdurulur.</p>
+
+            <h4>10. UYUŞMAZLIK ÇÖZÜMÜ</h4>
+            <p>10.1. Uyuşmazlıklar öncelikle dostane yollarla çözülmeye çalışılır.</p>
+            <p>10.2. Çözülemezse İstanbul Mahkemeleri yetkilidir.</p>
+            <p>10.3. Türk Hukuku uygulanır.</p>
+
+            <h4>11. ÖZEL HÜKÜMLER</h4>
+            <p>11.1. Bu sözleşme elektronik ortamda kabul edilmiştir.</p>
+            <p>11.2. Sözleşme Türkçe olarak hazırlanmıştır.</p>
+            <p>11.3. Herhangi bir maddenin geçersiz olması diğerlerini etkilemez.</p>
+
+            <h4>12. YÜRÜRLÜK</h4>
+            <p>Bu sözleşme, müşteri tarafından kabul edildiği tarihten itibaren yürürlüğe girer ve taraflardan biri
+              tarafından feshedilene kadar geçerlidir.</p>
+
+            <p class="signature-section">
+              <strong>Sözleşme Tarihi:</strong> {{ getCurrentDate() }}<br>
+              <strong>Vakıfbank T.A.O.</strong><br>
+              <em>Bu sözleşme elektronik ortamda imzalanmış olup, fiziki imza ile aynı hukuki değere sahiptir.</em>
+            </p>
+          </div>
+          <p><strong>Sözleşme Tarihi:</strong> {{ getCurrentDate() }}</p>
+        </div>
+        <div class="terms-card-footer">
+          <button class="btn-accept" [disabled]="!isScrolledToBottom" (click)="acceptTerms()">
+            {{ isScrolledToBottom ? 'Kabul Ediyorum' : 'Lütfen tamamını okuyun' }}
+          </button>
+          <button class="btn-cancel" (click)="closeTermsModal()">İptal</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTER BUTTON -->
+    <button
+  (click)="register()" [disabled]="!isFormValid()" class="btn-register">Kayıt Ol</button>
+  </form>
+</div>

@@ -336,19 +336,6 @@
             "fileVersion": "1.0.0.0"
           }
         }
-      },
-      "WebApplication1/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.2",
-          "Microsoft.AspNetCore.OpenApi": "9.0.2",
-          "Swashbuckle.AspNetCore": "7.3.1"
-        },
-        "runtime": {
-          "WebApplication1.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -547,11 +534,6 @@
       "sha512": ""
     },
     "Goals.Service/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "WebApplication1/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

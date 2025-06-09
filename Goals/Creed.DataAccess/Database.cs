@@ -38,6 +38,11 @@ public class Database
     {
         return DatabaseInstance.ExecuteDataSet(spName, parameters);
     }
+    
+    public int ExecuteNonQuery(string spName, DatabaseParameters parameters)
+    {
+        return Execute(() => DatabaseInstance.ExecuteNonQuery(spName, parameters));
+    }
 
     private TResult Execute<TResult>(Func<TResult> command)
     {

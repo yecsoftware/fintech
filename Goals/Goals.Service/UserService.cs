@@ -29,6 +29,13 @@ public class UserService
         
     }
     
+    
+    public bool UpdateUserPhoto(UserDto userId, string path)
+    {
+        var eUser = new EUser(new Database(connectionString));
+        return eUser.UpdatePhotoPath(userId, path);
+    }
+    
     public ResponseMessage GetUserById(RequestMessage request)
     {
         
@@ -66,13 +73,20 @@ public class UserService
 
     public ResponseMessage RegisterUser(RequestMessage request)
     {
-        var dto = request.Get<UserDto>();
+        var dto = request.Get<UserDto>();                      // DTO nesnesini al
+        var base64 = request._items["Base64File"]?.ToString();        // Base64 stringi ayrı al
+
+        if (!string.IsNullOrEmpty(base64))
+        {
+            dto.UserPhotoPath = base64;                        // ✅ Base64 değeri DTO'ya yaz
+        }
+
         var hashedPassword = _hasher.HashPassword(null, dto.UserPassword);
-        // Veritabanı işlemi için DTO'yu kullanıyoruz.
         dto.UserPassword = hashedPassword;
+
         EUser eUser = new EUser(new Database(connectionString));
         var response = eUser.CreateUser(dto);
-    
+
         return ResponseMessage.Success(response);
     }
     

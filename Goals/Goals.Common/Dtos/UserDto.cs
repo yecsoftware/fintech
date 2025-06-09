@@ -11,5 +11,7 @@ public class UserDto
     public string? UserRole { get; set; }
     public string? UserPhoneNumber { get; set; }
     
+    public string? UserPhotoPath { get; set; }
+    
     
 }

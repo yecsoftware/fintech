@@ -26,6 +26,7 @@ export class UButtonComponent {
   @Input() actionType?: string; 
   @Input() backgroundColor?: string;
   @Input() textColor?: string;
+  @Input() registerData: any;
   @Input() theme: 'dark' | 'light' | 'default' = 'light';
   @Output() clicked = new EventEmitter<MouseEvent>();
   
@@ -41,7 +42,7 @@ export class UButtonComponent {
     else if (this.actionType === 'logout') {
       this.logoutService.logout(); // <-- doğru servisi çağırıyoruz
     }else if (this.actionType === 'register') {
-      this.registerService.register();
+      this.registerService.register(this.registerData);
     }
     else if (this.actionType === 'login') {
       this.loginService.login();}

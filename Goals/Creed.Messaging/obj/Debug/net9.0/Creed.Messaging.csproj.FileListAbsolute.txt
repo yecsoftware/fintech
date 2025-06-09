@@ -11,3 +11,16 @@
 /Users/yunusemrecoskun/RiderProjects/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.pdb
 /Users/yunusemrecoskun/RiderProjects/Goals/Creed.Messaging/obj/Debug/net9.0/ref/Creed.Messaging.dll
 /Users/yunusemrecoskun/RiderProjects/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.csproj.AssemblyReference.cache
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/bin/Debug/net9.0/Creed.Messaging.deps.json
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/bin/Debug/net9.0/Creed.Messaging.dll
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/bin/Debug/net9.0/Creed.Messaging.pdb
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.csproj.AssemblyReference.cache
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.AssemblyInfoInputs.cache
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.AssemblyInfo.cs
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.csproj.CoreCompileInputs.cache
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.sourcelink.json
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.dll
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/refint/Creed.Messaging.dll
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/Creed.Messaging.pdb
+/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Creed.Messaging/obj/Debug/net9.0/ref/Creed.Messaging.dll

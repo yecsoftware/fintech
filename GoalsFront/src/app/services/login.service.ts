@@ -5,6 +5,7 @@ import { UserDto } from '../models/userDto';
 import { RequestMessage } from '../core/messages/requestMessage';
 import { ResponseMessage } from '../core/messages/responseMessage';
 import { HttpService } from './httpservice';
+import { UserService } from './user.service';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { HttpService } from './httpservice';
 })
 export class LoginService {
 
-  constructor(private router : Router , private http:HttpClient,private svcHttp: HttpService) { }
+  constructor(private router : Router , private http:HttpClient,private svcHttp: HttpService,private userService: UserService) { }
 
   data: any;
   user: UserDto = new UserDto();

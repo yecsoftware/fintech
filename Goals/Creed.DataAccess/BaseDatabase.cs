@@ -29,6 +29,8 @@ public abstract class BaseDatabase
     //         return dataSet;
     //     }
     // }
+    
+    public abstract int ExecuteNonQuery(string spName, DatabaseParameters parameters);
 
 
 }

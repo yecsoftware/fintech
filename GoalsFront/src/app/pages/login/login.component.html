@@ -3,24 +3,24 @@
 <div class=" wrapper">
   <div class="">
     <form  #loginForm="ngForm">
-      <h1><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Vak%C4%B1fbank-logo.svg" alt=""></h1>
+      <h1><a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Vak%C4%B1fbank-logo.svg" alt="Vakifbank"></a></h1>
       <div class="input-box">
-        <input type="text" placeholder="Email" name="UserEmail" required [(ngModel)]="loginData.UserEmail" />
+        <input type="text" placeholder="E-posta" name="UserEmail" required [(ngModel)]="loginData.UserEmail" />
         <i class='bx bxs-user'></i>
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Password" name="UserPassword" required [(ngModel)]="loginData.UserPassword" />
+        <input type="password" placeholder="Şifre" name="UserPassword" required [(ngModel)]="loginData.UserPassword" />
         <i class='bx bxs-lock-alt'></i>
       </div>
       <div class="remember-forgot">
         <u-checkbox label="Remember me" >Remember me</u-checkbox>
 
-        <a style="padding-left: 15px" href="#">Forgot Password</a>
+        <a style="padding-left: 15px" href="#">Şifremi unuttum!</a>
       </div>
-      <u-button class="u-button"  [label]="'Login'" [actionType]="'login'" theme="dark"></u-button>
+      <button  type="submit" [disabled]="!isFormValid()" class="btn-register"  (click)="login()">Giriş Yap</button>
 
       <div class="register-link">
-        <p>Don't have an account? <a routerLink="/register" routerLinkActive="active-link">Registiration</a> </p>
+        <p>Hesabınız yok mu? <a routerLink="/register" routerLinkActive="active-link">Kayıt ol!</a> </p>
       </div>
     </form>
   </div>

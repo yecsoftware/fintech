@@ -22,6 +22,7 @@ import { authGuard, authChildGuard } from './auth.guard';
 import { roleGuard } from './roleguard.guard';
 import { TransactionComponent } from './pages/transaction/transaction.component';
 import { CustomerComponent } from './pages/customer/customer.component';
+import { VerifyComponent } from './pages/verify/verify.component';
 
 export const homeRoute: Route = { path: '', component: AppComponent };
 
@@ -33,6 +34,7 @@ export const routes: Routes = [
     { path: 'ngcontent', component: NgcontentComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+
     {
       path: 'layout',
       component: LayoutsComponent,
@@ -46,6 +48,8 @@ export const routes: Routes = [
         { path: 'dashboard/:params', component: DashboardComponent },
         { path: 'transaction', component: TransactionComponent },
         {path: 'customer', component: CustomerComponent},
+        { path: 'verify', component: VerifyComponent},
+
       ],
     },
     {

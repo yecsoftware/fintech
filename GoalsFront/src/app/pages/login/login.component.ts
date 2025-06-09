@@ -63,6 +63,14 @@ export class LoginComponent {
   }
 
 
+  isFormValid(): boolean {
+    return (
+      this.loginData.UserEmail.trim() !== '' &&
+      this.loginData.UserPassword.trim() !== ''
+    );
+  }
+
+
   loginData2 = {
     userEmail: '',
     userPassword: '',
@@ -72,34 +80,40 @@ usernameInput: any;
 
 
 
-  login(){
+  // login(){
 
-    let dto = new UserDto();
+  //   if (!this.isFormValid()) return;
 
-    dto.UserEmail = this.loginData2.userEmail;
-    dto.UserPassword=this.loginData2.userPassword;
+  //   let dto = new UserDto();
 
-        let requestMessage = new RequestMessage();
-        requestMessage.Add("Goals.Common.Dtos.UserDto", dto);
+  //   dto.UserEmail = this.loginData2.userEmail;
+  //   dto.UserPassword=this.loginData2.userPassword;
 
-            this.svcHttp.post('User/token',requestMessage).subscribe((res : ResponseMessage) => {
-              let Data = res.Get<UserDto>("Goals.Common.Dtos.UserDto");
-              const data = res.Get<UserDto>("Goals.Common.Dtos.UserDto");
-              console.log('DATA:', data);
-              console.log('ItemsProxy:', res.ItemsProxy);
-              this.user = res.Get<UserDto>("Goals.Common.Dtos.UserDto");
-              this.router.navigate(['/dashboard']);
-              localStorage.setItem('token', res.ItemsProxy.token);
-              this.data=Data;
-              return this.user;
-            });
+  //       let requestMessage = new RequestMessage();
+  //       requestMessage.Add("Goals.Common.Dtos.UserDto", dto);
 
-    this.svcHttp.getToken({UserEmail:this.loginData.UserEmail, UserPassword:this.loginData.UserPassword}).subscribe((res) => {
-      console.log('Token:', res);
-      localStorage.setItem('token', res.token);
-      this.router.navigate(['/dashboard']);
-    });
-  }
+  //           this.svcHttp.post('User/token',requestMessage).subscribe((res : ResponseMessage) => {
+  //             let Data = res.Get<UserDto>("Goals.Common.Dtos.UserDto");
+  //             const data = res.Get<UserDto>("Goals.Common.Dtos.UserDto");
+  //             console.log('DATA:', data);
+  //             console.log('ItemsProxy:', res.ItemsProxy);
+  //             this.user = res.Get<UserDto>("Goals.Common.Dtos.UserDto");
+  //             this.router.navigate(['/dashboard']);
+  //             localStorage.setItem('token', res.ItemsProxy.token);
+  //             this.data=Data;
+  //             return this.user;
+  //           });
+
+  //   this.svcHttp.getToken({UserEmail:this.loginData.UserEmail, UserPassword:this.loginData.UserPassword}).subscribe((res) => {
+  //     console.log('Token:', res);
+  //     localStorage.setItem('token', res.token);
+  //     this.router.navigate(['/dashboard']);
+  //   });
+  // }
+
+  login() {
+  this.loginService.login(); // u-button'daki mantığın aynısı
+}
 
 
     getUser(){

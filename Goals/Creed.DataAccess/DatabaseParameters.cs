@@ -28,6 +28,10 @@ public class DatabaseParameters: List<DatabaseParameter>
          
     }
     
+    public IEnumerable<DatabaseParameter> GetParameters()
+    {
+        return this;
+    }
 
     public void Add(string name, object value, DbType type = DbType.String)
     {

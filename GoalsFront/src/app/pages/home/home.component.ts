@@ -17,18 +17,33 @@ import { FormsModule } from '@angular/forms';
 import { UFormSectionComponent } from '../../components/u-form-section/u-form-section.component';
 import { USelectComponent } from "../../components/u-select/u-select.component";
 import { UListBoxComponent } from '../../components/u-list-box/u-list-box.component';
+import { UserDto } from '../../models/userDto';
+import { UserService } from '../../services/user.service';
+import { OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
-  imports: [RenklendirDirective, RouterOutlet, UButtonComponent,UCardComponent,URowComponent,UExpansionPanelComponent,UButtonComponent, FormsModule, UCardComponent, UInputComponent, UFormSectionComponent, USelectComponent,UListBoxComponent,CardContentDirective,CardFooterDirective,CardHeaderDirective,CardTitleDirective,CardSubtitleDirective,CardAvatarDirective,URowComponent,UColumnComponent],
+  imports: [CommonModule,RenklendirDirective, RouterOutlet, UButtonComponent,UCardComponent,URowComponent,UExpansionPanelComponent,UButtonComponent, FormsModule, UCardComponent, UInputComponent, UFormSectionComponent, USelectComponent,UListBoxComponent,CardContentDirective,CardFooterDirective,CardHeaderDirective,CardTitleDirective,CardSubtitleDirective,CardAvatarDirective,URowComponent,UColumnComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  user: UserDto | null = null;
   name: string = "";
-  constructor(private router: Router) {
+  constructor(private router: Router,private userService:UserService) {}
+   ngOnInit() {
+    // Kullanıcı servisten alınıyor
+    this.userService.user$.subscribe((u) => {
+      this.user = u;
+    });
 
-}
+    // Sayfa yenileme sonrası session'dan yükle
+    if (!this.user) {
+      this.userService.loadUserFromSession();
+    }
+  }
 
 checkStatus() {}
 logout() {

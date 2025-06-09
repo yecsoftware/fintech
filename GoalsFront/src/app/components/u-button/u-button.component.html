@@ -1,20 +1,14 @@
-<!-- <button
-  [type]="type"
-  [disabled]="disabled || loading"
-  [ngClass]="['btn', 'btn-' + variant]"
-  (click)="onClick()"
->
-  <ng-content></ng-content>
-</button> -->
-
-
 <button
   mat-raised-button
   [type]="type"
   [disabled]="disabled"
-  [ngClass]="theme === 'dark' ? 'dark-theme' : ''"
+  [ngClass]="{
+    'dark-theme': theme === 'dark',
+    'dark-disabled': theme === 'dark' && disabled
+  }"
   (click)="onClick($event)">
   {{ label }}
 </button>
+
 
 

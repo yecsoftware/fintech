@@ -1,24 +1,20 @@
 {
   "Version": 1,
-  "Hash": "kUREUL1b06HHywVBdlyBujjP9pYNgqvBw5MnfBmB71U=",
+  "Hash": "11xQzHHEfNxSDc+92cKh6gqvS2Q/7Hjk/uS5uedk4zo=",
   "Source": "Goals.API",
   "BasePath": "_content/Goals.API",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
     {
-      "Identity": "/Users/yunusemrecoskun/RiderProjects/Goals/WebApplication1/WebApplication1.csproj",
-      "Version": 2,
-      "Source": "WebApplication1",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+      "Name": "Goals.API/wwwroot",
+      "Source": "Goals.API",
+      "ContentRoot": "/Users/yunusemrecoskun/Desktop/fintechapp/Goals/Goals.API/wwwroot/",
+      "BasePath": "_content/Goals.API",
+      "Pattern": "**"
     }
   ],
-  "DiscoveryPatterns": [],
   "Assets": [],
   "Endpoints": []
 }

@@ -115,6 +115,18 @@ public class EUser
 
         return null;
     }
+    
+    
+    public bool UpdatePhotoPath(UserDto userId, string path)
+    {
+        var parameters = new DatabaseParameters();
+        parameters.Add("UserId", userId);
+        parameters.Add("PhotoPath", path);
+
+        var result = _database.ExecuteNonQuery("sp_UpdateUserPhoto", parameters);
+        return result > 0;
+    }
+
 
     public UserDto CreateUser(UserDto dto)
     {
@@ -124,6 +136,8 @@ public class EUser
         parameters.Add("UserEmail", dto.UserEmail);
         parameters.Add("UserPassword", dto.UserPassword);
         parameters.Add("UserRole", dto.UserRole ?? "user");
+        parameters.Add("UserPhoneNumber", dto.UserPhoneNumber);
+        parameters.Add("UserPhotoPath", dto.UserPhotoPath );
         
         
         var result = _database.ExecuteDataSet("sp_RegisterUser", parameters);
@@ -137,6 +151,7 @@ public class EUser
                 UserName = row["UserName"].ToString(),
                 UserEmail = row["UserEmail"].ToString(),
                 UserPassword = row["UserPassword"].ToString(),
+                UserPhoneNumber = row["UserPhoneNumber"].ToString(),
                 UserRole = row["UserRole"].ToString(),
             };
             
