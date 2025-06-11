@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Creed.Messaging")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5530f289a8708bad6b7e8c38af4d1d83ddff8d44")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+258d18aee0b67821e84d1d31ea6f16f22b930095")]
 [assembly: System.Reflection.AssemblyProductAttribute("Creed.Messaging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Creed.Messaging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
